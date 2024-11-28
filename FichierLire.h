@@ -8,7 +8,7 @@ private:
 public:
     FichierLire(string chemin);
     ~FichierLire();
-    GrilleJDVL Lire(GrilleJDVL tab);
+    GrilleJDVL* Lire();
 };
 
 

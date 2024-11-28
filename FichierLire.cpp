@@ -10,7 +10,8 @@ FichierLire::~FichierLire()
 {
 }
 
-GrilleJDVL FichierLire ::Lire (GrilleJDVL GrilleIni){
+GrilleJDVL* FichierLire ::Lire (){
+    GrilleJDVL* GrilleIni;
     int valeur;
     
     f_in.open(path);
@@ -19,17 +20,17 @@ GrilleJDVL FichierLire ::Lire (GrilleJDVL GrilleIni){
     }
 
     f_in >> valeur;
-    GrilleIni.setLigne(valeur);
+    GrilleIni->setLigne(valeur);
     f_in >> valeur;
-    GrilleIni.setColonne(valeur);
+    GrilleIni->setColonne(valeur);
 
     
-    for (int i = 0; i < GrilleIni.getLigne(); i++)
+    for (int i = 0; i < GrilleIni->getLigne(); i++)
     {
-        for (int j = 0; j < GrilleIni.getColonne(); j++)
+        for (int j = 0; j < GrilleIni->getColonne(); j++)
         {
             if (f_in >> valeur){ 
-                GrilleIni.getCell(i,j).SetEtat(valeur);
+                GrilleIni->getCell(i,j)->SetEtat(valeur);
             }
         }
     }

@@ -1,4 +1,4 @@
-#include "GrilleJDVL.h"
+#include "FichierLire.h"
 class FichierEcrire
 {
 private:

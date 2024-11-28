@@ -2,7 +2,7 @@
 class Grille
 {
 protected:
-    vector <vector<Cell>> tab;
+    vector <vector<Cell*>> tab;
 public:
     Grille(){}
     ~Grille(){}
