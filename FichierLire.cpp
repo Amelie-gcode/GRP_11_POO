@@ -14,7 +14,8 @@ GrilleJDVL* FichierLire ::Lire (){
     GrilleJDVL* GrilleIni;
     int valeur;
     
-    f_in.open(path);
+    f_in.open(path, std::ios::in);
+
     if (!f_in.is_open()) {
         cerr << "Erreur : impossible d'ouvrir le fichier en lecture : " << path << endl;
     }
