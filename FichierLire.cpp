@@ -4,6 +4,7 @@
 FichierLire::FichierLire(string chemin)
 {
     path = chemin;
+    ifstream f_in;
 }
 
 FichierLire::~FichierLire()
@@ -11,7 +12,8 @@ FichierLire::~FichierLire()
 }
 
 GrilleJDVL* FichierLire ::Lire (){
-    GrilleJDVL* GrilleIni;
+    GrilleJDVL* GrilleIni=new GrilleJDVL();
+
     int valeur;
     
     f_in.open(path, std::ios::in);
@@ -24,7 +26,7 @@ GrilleJDVL* FichierLire ::Lire (){
     GrilleIni->setLigne(valeur);
     f_in >> valeur;
     GrilleIni->setColonne(valeur);
-
+    GrilleIni->ini_grille();
     
     for (int i = 0; i < GrilleIni->getLigne(); i++)
     {
@@ -37,5 +39,6 @@ GrilleJDVL* FichierLire ::Lire (){
     }
     
     f_in.close();
+
     return GrilleIni;
 }

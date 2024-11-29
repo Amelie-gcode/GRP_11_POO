@@ -15,7 +15,7 @@ public:
     void setLigne(int x){ nb_ligne=x;}
     void setColonne(int y){ nb_colonne=y;}
     Cell* getCell(int i, int j){return tab[i][j];}
-    GrilleJDVL* generationNext();
+    void generationNext();
     int nb_cote(int i, int j);
     GrilleJDVL* getNext(){return this->next;}
 

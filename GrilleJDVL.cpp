@@ -1,8 +1,10 @@
 #include "GrilleJDVL.h"
 GrilleJDVL::GrilleJDVL()
 {
+    nb_colonne=5;
+    nb_ligne=5;
     ini_grille();
-    next= generationNext();
+    //GrilleJDVL*next = new GrilleJDVL();
 }
 
 GrilleJDVL::~GrilleJDVL()
@@ -19,6 +21,11 @@ GrilleJDVL::~GrilleJDVL()
 void GrilleJDVL::ini_grille()
 {
     tab = vector <vector<Cell*>>(nb_ligne,vector<Cell*>(nb_colonne));
+    for (int i = 0; i < nb_ligne; i++) {
+        for (int j = 0; j < nb_colonne; j++) {
+            tab[i][j] = new Cell();  // Allouer chaque cellule
+        }
+    }
 }
 
 void GrilleJDVL::afficher()
@@ -47,8 +54,8 @@ int GrilleJDVL:: nb_cote(int i, int j){
     return compt;
 }
 
-GrilleJDVL* GrilleJDVL:: generationNext(){
-    GrilleJDVL* temp;
+void GrilleJDVL:: generationNext(){
+    GrilleJDVL* temp=new GrilleJDVL();
 
     for (int i = 0; i < nb_ligne; i++) {
             for (int j = 0; j < nb_colonne; j++) {
@@ -67,6 +74,6 @@ GrilleJDVL* GrilleJDVL:: generationNext(){
                 }
             }
         }
-    return temp;
+    next =temp;
 }
 
