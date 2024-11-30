@@ -5,6 +5,7 @@ FichierLire::FichierLire(string chemin)
 {
     path = chemin;
     ifstream f_in;
+    
 }
 
 FichierLire::~FichierLire()

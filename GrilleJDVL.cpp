@@ -4,7 +4,6 @@ GrilleJDVL::GrilleJDVL()
     nb_colonne=5;
     nb_ligne=5;
     ini_grille();
-    //GrilleJDVL*next = new GrilleJDVL();
 }
 
 GrilleJDVL::~GrilleJDVL()
@@ -56,7 +55,9 @@ int GrilleJDVL:: nb_cote(int i, int j){
 
 void GrilleJDVL:: generationNext(){
     GrilleJDVL* temp=new GrilleJDVL();
-
+    temp->setLigne(this->getLigne());
+    temp->setColonne(this->getColonne());
+    temp->ini_grille();
     for (int i = 0; i < nb_ligne; i++) {
             for (int j = 0; j < nb_colonne; j++) {
                 if (tab[i][j]->GetEtat()) {

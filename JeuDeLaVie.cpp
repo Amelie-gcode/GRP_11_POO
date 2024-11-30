@@ -3,26 +3,28 @@
 
 void run(){
     
-    FichierLire f_ini("/home/game/GRP_11_POO/GRP_11_POO/Grille_ini.txt");
-    cout <<"test"<<endl;
+    FichierLire f_ini("Grille_ini.txt");
     GrilleJDVL *grille_ini=new GrilleJDVL();
 
     grille_ini->afficher();
     cout <<"==============="<<endl;
     grille_ini =f_ini.Lire();
+    FichierEcrire f_deux("Grille_out.txt");
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 4; i++)
     {
         cout <<"==============="<<endl;
         grille_ini->afficher();
         grille_ini->generationNext();
         GrilleJDVL* grille2= grille_ini->getNext();
+        cout <<"==============="<<endl;
         grille_ini=grille2;
+        f_deux.Ecrire(grille_ini);
+
     }
     
 }
 int main(){
-    cout<<"test1";
     run();
     return 0;
 
