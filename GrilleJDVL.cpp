@@ -3,6 +3,7 @@ GrilleJDVL::GrilleJDVL()
 {
     nb_colonne=5;
     nb_ligne=5;
+    IRegle *regle;
     ini_grille();
 }
 
@@ -54,24 +55,18 @@ int GrilleJDVL:: nb_cote(int i, int j){
 }
 
 void GrilleJDVL:: generationNext(){
-    GrilleJDVL* temp=new GrilleJDVL();
+    regle=new RegleJDLV();
+    Grille* temp=new GrilleJDVL();
     temp->setLigne(this->getLigne());
     temp->setColonne(this->getColonne());
     temp->ini_grille();
     for (int i = 0; i < nb_ligne; i++) {
             for (int j = 0; j < nb_colonne; j++) {
-                if (tab[i][j]->GetEtat()) {
-                    if (nb_cote(i, j) == 2 || nb_cote(i, j) == 3) {
-                        temp->getCell(i,j)->SetEtat(true);
-                    } else {
-                        temp->getCell(i,j)->SetEtat(false);
-                    }
+                int cote= nb_cote(i,j);
+                if (tab[i][j]->GetEtat()) {                    
+                    temp->getCell(i,j)->SetEtat(regle->Vivant(cote));
                 } else {
-                    if (nb_cote(i, j) == 3) {
-                        temp->getCell(i,j)->SetEtat(true);
-                    } else {
-                        temp->getCell(i,j)->SetEtat(false);
-                    }
+                    temp->getCell(i,j)->SetEtat(regle->Morte(cote));
                 }
             }
         }

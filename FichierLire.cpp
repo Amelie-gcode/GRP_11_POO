@@ -5,16 +5,16 @@ FichierLire::FichierLire(string chemin)
 {
     path = chemin;
     ifstream f_in;
-    
+
 }
 
 FichierLire::~FichierLire()
 {
 }
 
-GrilleJDVL* FichierLire ::Lire (){
-    GrilleJDVL* GrilleIni=new GrilleJDVL();
-
+Grille* FichierLire ::Lire (){
+    Grille* GrilleIni;
+    GrilleIni=new GrilleJDVL();
     int valeur;
     
     f_in.open(path, std::ios::in);

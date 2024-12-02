@@ -1,12 +1,14 @@
-#include "Lib.h"
-class Cell
+#include "ICell.h"
+#pragma once
+
+class Cell:public ICell
 {
 private:
     bool etat;
 public:
     Cell();
     ~Cell();
-    bool GetEtat();
-    void SetEtat(bool a);
+    bool GetEtat()override;
+    void SetEtat(bool a)override;
 };
 

@@ -1,6 +1,7 @@
 #include "GrilleJDVL.h"
+#include "IFichier.h"
 
-class FichierLire
+class FichierLire: public IFichier
 {
 private:
     ifstream f_in;
@@ -8,7 +9,7 @@ private:
 public:
     FichierLire(string chemin);
     ~FichierLire();
-    GrilleJDVL* Lire();
+    Grille* Lire();
 };
 
 

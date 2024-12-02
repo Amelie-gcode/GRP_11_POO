@@ -1,13 +1,17 @@
 #include "Grille.h"
+#include "RegleJDLV.h"
+
 class GrilleJDVL: public Grille
 {
 private:
+    vector <vector<Cell*>> tab;
     int nb_colonne;
     int nb_ligne;
-    GrilleJDVL* next;
+    Grille* next;
+    IRegle* regle;
 public:
     GrilleJDVL();
-    ~GrilleJDVL();
+    ~GrilleJDVL()override;
     void afficher()override;
     void ini_grille();
     int getLigne(){return nb_ligne;}
@@ -17,7 +21,7 @@ public:
     Cell* getCell(int i, int j){return tab[i][j];}
     void generationNext();
     int nb_cote(int i, int j);
-    GrilleJDVL* getNext(){return this->next;}
+    Grille* getNext(){return this->next;}
 
 };
 

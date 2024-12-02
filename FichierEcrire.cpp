@@ -2,9 +2,8 @@
 
 
 int FichierEcrire ::comp =0;
-FichierEcrire::FichierEcrire(string p)
+FichierEcrire::FichierEcrire()
 {
-    path = p;
     ofstream f_out;
 }
 
@@ -20,10 +19,10 @@ string FichierEcrire:: genere_nom(){
     
 }
 
-void FichierEcrire::Ecrire(GrilleJDVL* grille){
+void FichierEcrire::Ecrire(Grille* grille){
     f_out.open(genere_nom(), std::ofstream::out);
     if (!f_out.is_open()) {
-        cerr << "Erreur : impossible d'ouvrir le fichier en écriture : " << path << endl;
+        cerr << "Erreur : impossible d'ouvrir le fichier en écriture : "  << endl;
         return;
     }
     f_out << grille->getLigne()<<" "<< grille->getColonne()<< endl;

@@ -1,13 +1,11 @@
 #include "FichierLire.h"
-class FichierEcrire
+class FichierEcrire: public IFichier
 {
 private:
-    ofstream f_out;
-    string path;
     static int comp;
 public:
-    FichierEcrire(string p);
+    FichierEcrire();
     ~FichierEcrire();
-    void Ecrire(GrilleJDVL *grille);
+    void Ecrire(Grille *grille);
     string genere_nom();
 };
