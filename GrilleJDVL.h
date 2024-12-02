@@ -1,6 +1,6 @@
 #include "Grille.h"
 #include "RegleJDLV.h"
-
+#pragma once
 class GrilleJDVL: public Grille
 {
 private:

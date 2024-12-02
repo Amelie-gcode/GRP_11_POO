@@ -1,5 +1,5 @@
 #include "IRegle.h"
-
+#pragma once
 class RegleJDLV: public IRegle
 {
 
