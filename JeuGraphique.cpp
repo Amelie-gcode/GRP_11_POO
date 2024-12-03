@@ -56,18 +56,6 @@ void JeuGraphique :: run(){
                         if (event.type == sf::Event::Closed) {
                             window.close();
                         }
-                        if (event.type == sf::Event::MouseButtonPressed) {
-                            if (event.mouseButton.button == sf::Mouse::Left) {
-                                int x = event.mouseButton.x;
-                                int y = event.mouseButton.y;
-                                grille_ini->getCell(x / 10, y / 10)->SetEtat(true);
-                            }
-                            if (event.mouseButton.button == sf::Mouse::Right) {
-                                int x = event.mouseButton.x;
-                                int y = event.mouseButton.y;
-                                grille_ini->getCell(x / 10, y / 10)->SetEtat(false);
-                            }
-                        }
                         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space)
                         {
                             
