@@ -44,11 +44,12 @@ void Affichage:: event(sf::RenderWindow &window){
 void Affichage::initialise(Grille* grille,sf::RenderWindow &window)
 {
     window.clear();
+    
      sf::RectangleShape cell(sf::Vector2f(tailleCell - 1.0f, tailleCell- 1.0f));
      for (int x = 0; x < grille->getLigne(); ++x) {
         for (int y = 0; y < grille->getColonne(); ++y) {
             if (grille->getCell(x,y)->GetEtat()) {
-                cell.setPosition(x * tailleCell, y * tailleCell);
+                cell.setPosition(y * tailleCell, x * tailleCell);
                 window.draw(cell);
             }
         }

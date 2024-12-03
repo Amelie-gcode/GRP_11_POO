@@ -6,19 +6,19 @@ public:
         JeuDeLaVie* jeu;
 
         // Choix du mode (fichier ou graphique) par exemple
-        std::cout << "rentrer le chemin du fichier ini: ";
+        /*std::cout << "rentrer le chemin du fichier ini: ";
         string chemin;
-        std::cin >> chemin;
+        std::cin >> chemin;*/
         std::cout << "Choisissez le mode (1: Fichier, 2: Graphique): ";
         int choix;
         std::cin >> choix;
+        if (choix == 1) {
         std::cout << "Choisissez le nombre d'iteration: ";
         int n;
         std::cin >> n;
-        if (choix == 1) {
-            jeu = new JeuFichier(n,chemin);
+            jeu = new JeuFichier(n,"Grille_ini.txt");
         } else {
-            jeu = new JeuGraphique(n,chemin);
+            jeu = new JeuGraphique("Grille_ini.txt");
         }
 
         jeu->run();  // Démarrage du jeu

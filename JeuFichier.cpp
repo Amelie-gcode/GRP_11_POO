@@ -1,5 +1,5 @@
 #include "JeuFichier.h"
-
+//#include "test.h"
 void JeuFichier::run(){
     
     FichierLire f_ini(chemin);
