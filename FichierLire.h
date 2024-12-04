@@ -10,6 +10,7 @@ public:
     FichierLire(string chemin);
     ~FichierLire();
     Grille* Lire();
+    void Setpath(string chemin){path=chemin ;}
 };
 
 

@@ -71,5 +71,6 @@ void GrilleJDVL:: generationNext(){
             }
         }
     next =temp;
+    //delete temp;
 }
 

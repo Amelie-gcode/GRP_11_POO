@@ -23,7 +23,7 @@ Affichage::Affichage(){
     tailleCell=10;
     //sf::RenderWindow window(sf::VideoMode(longueur*tailleCell, largeur*tailleCell), "JDLV");
 }
-Affichage::Affichage(int lo, int la,float size)
+Affichage::Affichage(int la, int lo,float size)
 {
     longueur=lo;
     largeur=la;

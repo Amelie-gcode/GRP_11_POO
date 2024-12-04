@@ -1,17 +1,17 @@
 #include "JeuGraphique.h"
-
+#pragma once
 class Client {
 public:
     static int jouer() {
         JeuDeLaVie* jeu;
 
         // Choix du mode (fichier ou graphique) par exemple
-        /*std::cout << "rentrer le chemin du fichier ini: ";
-        string chemin;
-        std::cin >> chemin;*/
         std::cout << "Choisissez le mode (1: Fichier, 2: Graphique): ";
         int choix;
         std::cin >> choix;
+        /*std::cout << "rentrer le chemin du fichier ini: ";
+        string chemin;
+        std::cin >> chemin;*/
         if (choix == 1) {
         std::cout << "Choisissez le nombre d'iteration: ";
         int n;

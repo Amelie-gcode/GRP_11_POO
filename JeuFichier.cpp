@@ -1,5 +1,5 @@
 #include "JeuFichier.h"
-//#include "test.h"
+
 void JeuFichier::run(){
     
     FichierLire f_ini(chemin);
@@ -12,11 +12,10 @@ void JeuFichier::run(){
         cout <<"==============="<<endl;
         grille_ini->afficher();
         grille_ini->generationNext();
-        Grille* grille2= grille_ini->getNext();
+        grille_ini= grille_ini->getNext();
         cout <<"==============="<<endl;
-        grille_ini=grille2;
         f_deux.Ecrire(grille_ini);
 
     }
-    
+    delete grille_ini;
 }
