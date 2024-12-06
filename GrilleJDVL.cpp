@@ -40,6 +40,7 @@ void GrilleJDVL::afficher()
    }
     
 }
+
 int GrilleJDVL:: nb_cote(int i, int j){
     int compt = 0;
         for (int k = i - 1; k <= i + 1; k++) {
@@ -71,6 +72,31 @@ void GrilleJDVL:: generationNext(){
             }
         }
     next =temp;
-    //delete temp;
+}
+
+bool GrilleJDVL :: espaceDispo(int x, int y,  int surface_long, int surface_larg){
+    // coordonnées de la surface dépassent du cadre
+    if (x < 0 || y < 0 || x+surface_long > this->getLigne() || y+surface_larg > this->getColonne()) {
+        return false;
+    }
+    
+    // parcours de la surface, si une seul cellule est vivante alors l'espace est indisponible
+    for (int i = 0; i<surface_long; i++) {
+        for (int j = 0; i<surface_larg; i++) {
+            if (this->getCell(x + i, y + j)->GetEtat() == true){
+                return false;
+            }
+        }
+    }
+    return true;
+};
+
+void GrilleJDVL :: fusionGrille(Grille * ajout, int x, int y){      // /!\ ligne colonne 
+    // colle la grille en paramètre aux coordonnées données sur l'entité fourni
+    for (int i = 0; i < ajout->getLigne(); i++) {
+        for (int j = 0; j < ajout->getColonne(); j++) {
+            this->getCell(y + i, x +j)->SetEtat(ajout->getCell(i, j));
+        }
+    }
 }
 

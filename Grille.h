@@ -15,6 +15,8 @@ public:
     virtual void generationNext()=0;
     virtual int nb_cote(int i, int j)=0;
     virtual Grille* getNext()=0;
+    virtual bool espaceDispo(int x, int y, int surface_long, int surface_larg)=0;
+    virtual void fusionGrille(Grille * ajout, int x, int y)=0;
 };
 
  

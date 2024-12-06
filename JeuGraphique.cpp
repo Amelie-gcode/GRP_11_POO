@@ -3,7 +3,7 @@
 
 void JeuGraphique :: run(){
     int timeInterval = 1000;
-    bool inPause = false;
+    string etat = "Run";
     FichierLire f_ini(chemin);
     Grille *grille_ini=new GrilleJDVL();
     grille_ini =f_ini.Lire();
@@ -14,8 +14,6 @@ void JeuGraphique :: run(){
     sf::RectangleShape cell(sf::Vector2f(10 - 1.0f, 10- 1.0f));
 
     while (window.isOpen()) {
-        
-        
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
@@ -35,20 +33,20 @@ void JeuGraphique :: run(){
                 {
                     grille_ini = f_ini.Lire();
                 }
-                if (event.key.code == sf::Keyboard::G)
-                {
-                    FichierLire f_G("G.txt");
-                    grille_ini = f_G.Lire();
-                }
                 if (event.key.code == sf::Keyboard::Delete) {
                     window.clear();
                     window.display();
                 }
                 if (event.key.code == sf::Keyboard::Space)
                 {
-                    inPause = !inPause;
+                    etat = "Pause";
                 }
-                while (inPause)
+                if (event.key.code == sf::Keyboard::G)
+                {
+                    etat = "Glider";
+                }
+                
+                while (etat == "Pause")
                 {
                     while (window.pollEvent(event))
                     {
@@ -59,7 +57,7 @@ void JeuGraphique :: run(){
                         {
                             if (event.key.code == sf::Keyboard::Space)
                             {
-                                inPause = false;
+                                etat = "Run";
                             }
                             if (event.key.code == sf::Keyboard::Delete) {
                                 window.clear();
@@ -87,9 +85,49 @@ void JeuGraphique :: run(){
                         }
                     }   
                 }
+
+                while (etat == "Glider")
+                {
+                    while (window.pollEvent(event))
+                    {
+                        if (event.type == sf::Event::Closed) {
+                            window.close();
+                        }
+                        if (event.type == sf::Event::KeyPressed)
+                        {
+                            if (event.key.code == sf::Keyboard::Delete) {
+                                window.clear();
+                                window.display();
+                            }
+                            if (event.key.code == sf::Keyboard::G)
+                            {
+                                etat = "Run";
+                            }
+                        }
+                        if (event.type == sf::Event::MouseButtonPressed) {
+                            
+                            int x = event.mouseButton.x / 10;
+                            int y = event.mouseButton.y / 10;
+                            if (event.mouseButton.button == sf::Mouse::Left) {
+                                int x_min = x - 20;
+                                int y_min = x - 20;
+                                bool dispo = grille_ini->espaceDispo(x_min, y_min, 5, 5);
+                                cout<< "glider"<< endl;
+                                if (dispo == true) {
+                                    Grille *glider=new GrilleJDVL();
+                                    FichierLire f_Glider("Glider.txt");
+                                    glider = f_Glider.Lire();  
+                                    grille_ini->fusionGrille(glider, x_min, y_min);
+                                    //fenetre.initialise(grille_ini, window);
+
+                                    cout<< "glider2"<< endl;
+                                }
+                            }
+                        }   
+                    }
+                }
             }
         }
-
         // Mise à jour de la grille et affichage
         fenetre.initialise(grille_ini, window);
         grille_ini->generationNext();  // Mise à jour de la grille à la génération suivante
@@ -100,5 +138,5 @@ void JeuGraphique :: run(){
         
     }
     
-  delete grille_ini;
-}
+    delete grille_ini;
+};

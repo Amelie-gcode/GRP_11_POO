@@ -1,4 +1,4 @@
-#include "JeuFichier.h"
+#include "JeuDeLaVie.h"
 class JeuGraphique:public JeuDeLaVie
 {
 private:

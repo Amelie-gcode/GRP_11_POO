@@ -1,12 +1,10 @@
-#include <iostream>
-#include <fstream>
-using namespace std;
+#pragma once
+#include "Lib.h"
 
 class IFichier
 {
 protected:
-    ifstream f_in;
-    ofstream f_out;
+    
 public:
     virtual ~IFichier(){}
 };

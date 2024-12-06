@@ -1,3 +1,4 @@
+#pragma once
 #include "JeuDeLaVie.h"
 
 class JeuFichier : public JeuDeLaVie

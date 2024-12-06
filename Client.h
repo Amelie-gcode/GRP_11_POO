@@ -1,5 +1,6 @@
-#include "JeuGraphique.h"
 #pragma once
+#include "JeuGraphique.h"
+#include "JeuFichier.h"
 class Client {
 public:
     static int jouer() {

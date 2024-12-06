@@ -1,7 +1,11 @@
-#include "FichierLire.h"
+#pragma once
+#include "IFichier.h"
+#include "Grille.h"
+
 class FichierEcrire: public IFichier
 {
 private:
+    ofstream f_out;
     static int comp;
 public:
     FichierEcrire();

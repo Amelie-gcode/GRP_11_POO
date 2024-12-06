@@ -1,4 +1,6 @@
+#pragma once
 #include "FichierEcrire.h"
+#include "FichierLire.h"
 class JeuDeLaVie
 {
 public:
