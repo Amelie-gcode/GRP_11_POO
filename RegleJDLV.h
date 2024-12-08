@@ -5,7 +5,7 @@ class RegleJDLV: public IRegle
 
 public:
     RegleJDLV(){}
-    ~RegleJDLV(){}
+    ~RegleJDLV()override{}
     bool Vivant(int nb_cote)override;
     bool Morte(int nb_cote)override;
 

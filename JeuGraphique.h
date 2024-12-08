@@ -1,4 +1,5 @@
 #include "JeuDeLaVie.h"
+#pragma once
 class JeuGraphique:public JeuDeLaVie
 {
 private:
@@ -9,7 +10,7 @@ public:
         this->chemin= chemin;
         this->mode=mode;
     }
-    ~JeuGraphique(){}
+    ~JeuGraphique()override{}
     void run()override;
 };
 

@@ -1,4 +1,5 @@
 #include "Lib.h"
+#pragma once
 class ICell
 {
 
