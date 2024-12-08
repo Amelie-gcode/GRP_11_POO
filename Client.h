@@ -13,7 +13,7 @@ public:
         std::cout << "rentrer le chemin du fichier ini: ";
         string chemin;
         std::cin >> chemin;
-        std::cout << "Voulez vous une grille trorique ? 1: oui 2: non";
+        std::cout << "Voulez vous une grille torique ? 1: oui 2: non";
         int torique;
         std::cin >> torique;
         if (choix == 1) {
