@@ -49,4 +49,6 @@ void test(){
     else {
         cout << "[FAILURE] generation suivante défaillante" << endl;  // Si une erreur a été trouvée, on affiche un message d'erreur
     }
+    delete  g;
+    delete g2;
 }

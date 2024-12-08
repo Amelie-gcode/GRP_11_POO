@@ -43,4 +43,5 @@ void JeuGraphique::run(){
     
     // Libération de la mémoire allouée pour la grille à la fin du programme
     delete grille_ini;
+    delete f_ini;
 }
