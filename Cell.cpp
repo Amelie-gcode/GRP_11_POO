@@ -3,7 +3,7 @@
 
 Cell::Cell()
 {
-    etat= false;
+    etat= false; //initialisation a morte
 }
 
 Cell::~Cell()
@@ -12,9 +12,9 @@ Cell::~Cell()
 
 bool Cell::GetEtat()
 {
-    return etat;
+    return etat; //retourne l'etat
 }
 void Cell::SetEtat(bool a)
 {
-    etat=a;
+    etat=a;  // set l'etat
 }

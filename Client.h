@@ -20,7 +20,7 @@ public:
         std::cout << "Choisissez le nombre d'iteration: ";
         int n;
         std::cin >> n;
-            jeu = new JeuFichier(n,chemin,torique);
+            jeu = new JeuFichier(n,chemin,torique);   // creation du jeu en fonction du choix
         } else {
             jeu = new JeuGraphique(chemin, torique);
         }
