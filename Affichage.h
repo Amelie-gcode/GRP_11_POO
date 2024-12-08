@@ -178,14 +178,12 @@ void Affichage::event(Grille* grille_ini, sf::RenderWindow &window, IFichier *f_
                             int x_min = x - 2;  // Calcule la position minimale pour le glider
                             int y_min = y - 2;  // Calcule la position minimale pour le glider
                             bool dispo = grille_ini->espaceDispo(x_min, y_min, 5, 5);  // Vérifie s'il y a de l'espace pour le glider
-                            cout << "glider" << endl;
                             if (dispo == true) {
                                 Grille *glider = new GrilleJDVL();  // Crée une nouvelle grille pour le glider
                                 FichierLire f_Glider("Glider.txt");  // Ouvre le fichier du glider
                                 glider = f_Glider.Lire();  // Charge le glider depuis le fichier
                                 grille_ini->fusionGrille(glider, x_min, y_min);  // Fusionne le glider avec la grille principale
                                 actualise(grille_ini, window);  // Met à jour l'affichage de la grille
-                                cout << "glider2" << endl;
                             }
                         }
                     }   

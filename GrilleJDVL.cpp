@@ -4,8 +4,7 @@
 GrilleJDVL::GrilleJDVL()
 {
     nb_colonne = 5;  // Définit le nombre de colonnes de la grille
-    nb_ligne = 5;    // Définit le nombre de lignes de la grille
-    IRegle *regle;   // Déclare un pointeur vers une règle 
+    nb_ligne = 5;    // Définit le nombre de lignes de la grille 
     ini_grille();    // Initialise la grille (alloue et configure les cellules)
 }
 
