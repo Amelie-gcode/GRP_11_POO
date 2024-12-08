@@ -74,12 +74,21 @@ void Affichage::event(Grille* grille_ini, sf::RenderWindow &window, IFichier *f_
             // Si la touche 'R' est pressée, recharge la grille à partir du fichier
             if (event.key.code == sf::Keyboard::R)
             {
+                delete grille_ini;
                 grille_ini = f_ini->Lire();  // Recharge la grille depuis le fichier
+                actualise(grille_ini, window);
+
             }
             // Si la touche 'Delete' est pressée, efface l'écran
-            if (event.key.code == sf::Keyboard::Delete) {
-                window.clear();  // Efface la fenêtre
-                window.display();  // Met à jour la fenêtre
+            if (event.key.code == sf::Keyboard::D) {
+                
+                for (int x = 0; x < grille_ini->getLigne(); ++x) {
+                    for (int y = 0; y < grille_ini->getColonne(); ++y) {
+                        grille_ini->getCell(x, y)->SetEtat(false);  // Met toutes les cellules à "morte"
+                    }
+                }
+                actualise(grille_ini, window);
+
             }
             // Si la touche 'Space' est pressée, met le jeu en pause
             if (event.key.code == sf::Keyboard::Space)

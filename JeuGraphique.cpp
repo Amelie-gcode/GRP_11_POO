@@ -25,12 +25,12 @@ void JeuGraphique::run(){
 
     // Boucle principale du programme, qui s'exécute tant que la fenêtre est ouverte
     while (window.isOpen()) {
-        // Mise à jour de l'affichage avec la grille actuelle
-        fenetre.actualise(grille_ini, window);
         
         // Gestion des événements comme les interactions avec la fenêtre (clics, touches, etc.)
         fenetre.event(grille_ini, window, f_ini, etat, cell);
         
+        // Mise à jour de l'affichage avec la grille actuelle
+        fenetre.actualise(grille_ini, window);
         // Mise à jour de la grille pour la génération suivante
         grille_ini->generationNext(mode);
         

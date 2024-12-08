@@ -3,8 +3,8 @@
 
 int main(){
     Client c;
-    //c.jouer();
-    test();
+    c.jouer();
+    //test();
     return 0;
 
 }
