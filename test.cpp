@@ -18,7 +18,7 @@ void test(){
         cout << "[FAILURE] premier ou dernier point non valide" << endl;
     }
 
-    g->generationNext();
+    g->generationNext(2);
     g = g->getNext();
 
     

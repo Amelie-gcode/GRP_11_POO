@@ -10,16 +10,19 @@ public:
         std::cout << "Choisissez le mode (1: Fichier, 2: Graphique): ";
         int choix;
         std::cin >> choix;
-        /*std::cout << "rentrer le chemin du fichier ini: ";
+        std::cout << "rentrer le chemin du fichier ini: ";
         string chemin;
-        std::cin >> chemin;*/
+        std::cin >> chemin;
+        std::cout << "Voulez vous une grille trorique ? 1: oui 2: non";
+        int torique;
+        std::cin >> torique;
         if (choix == 1) {
         std::cout << "Choisissez le nombre d'iteration: ";
         int n;
         std::cin >> n;
-            jeu = new JeuFichier(n,"Grille_ini.txt");
+            jeu = new JeuFichier(n,chemin,torique);
         } else {
-            jeu = new JeuGraphique("Grille_ini.txt");
+            jeu = new JeuGraphique(chemin, torique);
         }
 
         jeu->run();  // Démarrage du jeu

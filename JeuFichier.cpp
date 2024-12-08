@@ -11,7 +11,7 @@ void JeuFichier::run(){
     {
         cout <<"==============="<<endl;
         grille_ini->afficher();
-        grille_ini->generationNext();
+        grille_ini->generationNext(mode);
         grille_ini= grille_ini->getNext();
         cout <<"==============="<<endl;
         f_deux.Ecrire(grille_ini);

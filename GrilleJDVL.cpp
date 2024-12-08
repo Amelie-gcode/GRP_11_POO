@@ -55,7 +55,25 @@ int GrilleJDVL:: nb_cote(int i, int j){
     return compt;
 }
 
-void GrilleJDVL:: generationNext(){
+int GrilleJDVL:: nb_cote_torique(int i, int j){
+    int compt = 0;
+    for (int k = i - 1; k <= i + 1; k++) {
+        for (int q = j - 1; q <= j + 1; q++) {
+            if (!(k == i && q == j)) {
+                int a  = (k + nb_ligne) % nb_ligne;
+                int b =  (q + nb_colonne) % nb_colonne;
+
+                if (tab[a][b]->GetEtat()) {
+                    compt++;
+                }
+            }
+        }
+    }
+    return compt;
+}
+
+void GrilleJDVL:: generationNext(int mode){
+    int cote=0;
     regle=new RegleJDLV();
     Grille* temp=new GrilleJDVL();
     temp->setLigne(this->getLigne());
@@ -63,7 +81,14 @@ void GrilleJDVL:: generationNext(){
     temp->ini_grille();
     for (int i = 0; i < nb_ligne; i++) {
             for (int j = 0; j < nb_colonne; j++) {
-                int cote= nb_cote(i,j);
+                if (mode==1)
+                {
+                    cote= nb_cote_torique(i,j);
+                }
+                else
+                {
+                    cote= nb_cote(i,j);
+                }
                 if (tab[i][j]->GetEtat()) {                    
                     temp->getCell(i,j)->SetEtat(regle->Vivant(cote));
                 } else {
@@ -74,6 +99,7 @@ void GrilleJDVL:: generationNext(){
     next =temp;
 }
 
+
 bool GrilleJDVL :: espaceDispo(int x, int y,  int surface_long, int surface_larg){
     // coordonnées de la surface dépassent du cadre
     if (x < 0 || y < 0 || x+surface_long > this->getLigne() || y+surface_larg > this->getColonne()) {
@@ -82,8 +108,8 @@ bool GrilleJDVL :: espaceDispo(int x, int y,  int surface_long, int surface_larg
     
     // parcours de la surface, si une seul cellule est vivante alors l'espace est indisponible
     for (int i = 0; i<surface_long; i++) {
-        for (int j = 0; i<surface_larg; i++) {
-            if (this->getCell(x + i, y + j)->GetEtat() == true){
+        for (int j = 0; j<surface_larg; j++) {
+            if (this->getCell(y + j, x + i)->GetEtat() == true){
                 return false;
             }
         }
@@ -95,8 +121,7 @@ void GrilleJDVL :: fusionGrille(Grille * ajout, int x, int y){      // /!\ ligne
     // colle la grille en paramètre aux coordonnées données sur l'entité fourni
     for (int i = 0; i < ajout->getLigne(); i++) {
         for (int j = 0; j < ajout->getColonne(); j++) {
-            this->getCell(y + i, x +j)->SetEtat(ajout->getCell(i, j));
+            this->getCell(y + j, x + i)->SetEtat(ajout->getCell(j, i)->GetEtat());
         }
     }
 }
-

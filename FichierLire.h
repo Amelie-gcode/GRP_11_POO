@@ -9,9 +9,9 @@ private:
     string path; 
 public:
     FichierLire(string chemin);
-    ~FichierLire();
-    Grille* Lire();
-    void Setpath(string chemin){path=chemin ;}
+    ~FichierLire()override;
+    Grille* Lire()override;
+    void Setpath(string chemin)override{path=chemin ;}
 };
 
 

@@ -2,7 +2,7 @@
 #include "IFichier.h"
 #include "Grille.h"
 
-class FichierEcrire: public IFichier
+class FichierEcrire
 {
 private:
     ofstream f_out;

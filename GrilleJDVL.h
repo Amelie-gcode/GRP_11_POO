@@ -20,8 +20,9 @@ public:
     void setLigne(int x)override{ nb_ligne=x;}
     void setColonne(int y)override{ nb_colonne=y;}
     Cell* getCell(int i, int j)override{return tab[i][j];}
-    void generationNext()override;
+    void generationNext(int mode)override;
     int nb_cote(int i, int j)override;
+    int nb_cote_torique(int i, int j)override;
     Grille* getNext()override{return this->next;}
     bool espaceDispo(int x, int y, int surface_long, int surface_larg)override;
     void fusionGrille(Grille * ajout, int x, int y)override;
