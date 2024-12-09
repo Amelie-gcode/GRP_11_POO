@@ -7,7 +7,7 @@ private:
     bool etat;
 public:
     Cell();
-    ~Cell();
+    ~Cell()override;
     bool GetEtat()override;
     void SetEtat(bool a)override;
 };
